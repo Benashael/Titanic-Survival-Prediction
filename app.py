@@ -18,6 +18,9 @@ st.set_page_config(page_title = "Titanic Survival Prediction", page_icon = ":shi
 def load_data():
     df = pd.read_csv("Titanic-Dataset.csv")
     df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
+    return df
+
+df = load_data()
 
 # Display the dataset
 st.header("Titanic Dataset")
