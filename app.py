@@ -34,7 +34,7 @@ Fare = st.slider("Fare", 0, 300, 50)
 model_type = st.selectbox("Select Model", ["Random Forest", "Logistic Regression", "Decision Tree"])
 
 # Preprocess user input
-def preprocess_input(Pclass, Sex, Age, SibSp, Parch, Fare):
+def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
     if Pclass_1 == "1st":
         Pclass = 1
     elif Pclass_1 == "2nd":
@@ -47,7 +47,7 @@ def preprocess_input(Pclass, Sex, Age, SibSp, Parch, Fare):
     else:
         Sex = 1
 
-    return Pclass, Sex, age, Age, SibSp, Parch, Fare
+    return Pclass_1, Sex_1, age, Age, SibSp, Parch, Fare
 
 # Predict function
 def predict_survival(Pclass, Sex, age, Age, SibSp, Parch, Fare):
@@ -72,12 +72,12 @@ def predict_survival(Pclass, Sex, age, Age, SibSp, Parch, Fare):
     model.fit(X_train, y_train)
 
     # Make prediction
-    prediction = model.predict([[pclass, gender, age, sib_sp, parch, fare]])
+    prediction = model.predict([[Pclass, Sex, age, Age, SibSp, Parch, Fare]])
 
     return prediction
 
 # Display prediction
 if st.button("Predict"):
-    pclass, gender, age, sib_sp, parch, fare = preprocess_input(Pclass, Sex, Age, SibSp, Parch, Fare)
+    Pclass, Sex, age, Age, SibSp, Parch, Fare = preprocess_input(Pclass_1, Sex_1, age, Age, SibSp, Parch, Fare)
     prediction = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare)
     st.write("Prediction:", "Survived" if prediction[0] == 1 else "Not Survived")
