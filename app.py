@@ -26,7 +26,7 @@ st.header("User Input Features")
 
 # Options
 Pclass_1 = st.selectbox("Passenger Class", ["1st", "2nd", "3rd"])
-Sex_1 = st.selectbox("Sex", ["male", "female"])
+Sex_1 = st.selectbox("Sex", ["Male", "Female"])
 Age = st.slider("Age", 0, 100, 18)
 SibSp = st.slider("Number of Siblings/Spouses Aboard", 0, 10, 0)
 Parch = st.slider("Number of Parents/Children Aboard", 0, 10, 0)
@@ -43,9 +43,9 @@ def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
         Pclass = 3
 
     if Sex_1 == "male":
-        Sex = 0
+        Sex = "male"
     else:
-        Sex = 1
+        Sex = "female"
 
     return Pclass, Sex, Age, SibSp, Parch, Fare
 
