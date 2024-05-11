@@ -82,8 +82,10 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
 if st.button("Predict"):
     Pclass, Sex, Age, SibSp, Parch, Fare = preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare)
     prediction = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare)
-    report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
     st.subheader("Prediction:")
     st.write("Survived" if prediction[0] == 1 else "Not Survived")
-    st.subheader("Classification Report:")
-    st.write(report)
+
+    if st.checkbox("View Classification Report"):
+         report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
+         st.subheader("Classification Report:")
+         st.write(report)
