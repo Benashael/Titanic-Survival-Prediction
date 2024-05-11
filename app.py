@@ -50,7 +50,7 @@ def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
     return Pclass_1, Sex_1, age, Age, SibSp, Parch, Fare
 
 # Predict function
-def predict_survival(Pclass, Sex, age, Age, SibSp, Parch, Fare):
+def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     # Load data
     df = load_data()
 
