@@ -16,6 +16,7 @@ def load_data():
 
 # Load the dataset
 df = load_data()
+df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 
 # Display the dataset
 st.header("Titanic Dataset")
@@ -43,9 +44,9 @@ def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
         Pclass = 3
 
     if Sex_1 == "male":
-        Sex = "male"
+        Sex = 0
     else:
-        Sex = "female"
+        Sex = 1
 
     return Pclass, Sex, Age, SibSp, Parch, Fare
 
