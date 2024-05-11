@@ -6,7 +6,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-# Load Streamli page
 st.set_page_config(page_title = "Titanic Survival Prediction", page_icon = ":ship:")
 
 # Load the dataset
