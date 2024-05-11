@@ -86,6 +86,7 @@ if st.button("Predict"):
     st.write("Survived" if prediction[0] == 1 else "Not Survived")
 
     if st.checkbox("View Classification Report"):
-         report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
-         st.subheader("Classification Report:")
-         st.write(report)
+        model_type = model_type
+        report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
+        st.subheader("Classification Report:")
+        st.write(report)
