@@ -11,12 +11,13 @@ st.set_page_config(page_title = "Titanic Survival Prediction", page_icon = ":shi
 
 # Load the Titanic dataset
 '''@st.cache
-def load_data():
+
     return''' 
 
 # Load the dataset
-df = pd.read_csv("Titanic-Dataset.csv")
-df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
+def load_data():
+    df = pd.read_csv("Titanic-Dataset.csv")
+    df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 
 # Display the dataset
 st.header("Titanic Dataset")
@@ -53,8 +54,7 @@ def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
 # Predict function
 def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     # Load data
-    df = pd.read_csv("Titanic-Dataset.csv")
-    df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
+    df = load_data()
     
     # Preprocess input
     X = df[['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
