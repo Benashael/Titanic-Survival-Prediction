@@ -47,7 +47,7 @@ def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
     else:
         Sex = 1
 
-    return Pclass_1, Sex_1, Age, SibSp, Parch, Fare
+    return Pclass, Sex, Age, SibSp, Parch, Fare
 
 # Predict function
 def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
