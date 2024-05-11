@@ -74,11 +74,14 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
 
     # Make prediction
     prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
-
-    return prediction
+    prediction = model.predict(X_test)
+    report = classification_report(y_test, prediction)
+    return report
 
 # Display prediction
 if st.button("Predict"):
     Pclass, Sex, Age, SibSp, Parch, Fare = preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare)
     prediction = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare)
-    st.write("Prediction:", "Survived" if prediction[0] == 1 else "Not Survived")
+    st.subheader("Prediction:", "Survived" if prediction[0] == 1 else "Not Survived")
+    st.subheader("Classification Report:")
+    st.write(report)
