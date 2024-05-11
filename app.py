@@ -72,7 +72,7 @@ def predict_survival(Pclass, Sex, age, Age, SibSp, Parch, Fare):
     model.fit(X_train, y_train)
 
     # Make prediction
-    prediction = model.predict([[Pclass, Sex, age, Age, SibSp, Parch, Fare]])
+    prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
 
     return prediction
 
