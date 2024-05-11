@@ -78,6 +78,6 @@ def predict_survival(Pclass, Sex, age, Age, SibSp, Parch, Fare):
 
 # Display prediction
 if st.button("Predict"):
-    Pclass, Sex, age, Age, SibSp, Parch, Fare = preprocess_input(Pclass_1, Sex_1, age, Age, SibSp, Parch, Fare)
+    Pclass, Sex, age, Age, SibSp, Parch, Fare = preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare)
     prediction = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare)
     st.write("Prediction:", "Survived" if prediction[0] == 1 else "Not Survived")
