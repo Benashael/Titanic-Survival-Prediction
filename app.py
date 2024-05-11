@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 
 st.set_page_config(page_title = "Titanic Survival Prediction", page_icon = ":ship:")
 
-st.title("Titanic Survival Prediction" :ship:)
+st.title("Titanic Survival Prediction :ship:")
 
 # Load the dataset
 def load_data():
