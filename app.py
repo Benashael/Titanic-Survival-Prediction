@@ -10,12 +10,12 @@ from sklearn.metrics import accuracy_score
 st.set_page_config(page_title = "Titanic Survival Prediction", page_icon = ":ship:")
 
 # Load the Titanic dataset
-@st.cache
+'''@st.cache
 def load_data():
-    return pd.read_csv("Titanic-Dataset.csv")
+    return''' 
 
 # Load the dataset
-df = load_data()
+df = pd.read_csv("Titanic-Dataset.csv")
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 
 # Display the dataset
@@ -53,8 +53,9 @@ def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
 # Predict function
 def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     # Load data
-    df = load_data()
-
+    df = pd.read_csv("Titanic-Dataset.csv")
+    df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
+    
     # Preprocess input
     X = df[['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']]
     y = df['Survived']
