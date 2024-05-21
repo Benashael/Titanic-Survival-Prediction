@@ -90,9 +90,11 @@ if st.button("Predict"):
     st.subheader("Prediction:")
     st.write("Survived" if prediction[0] == 1 else "Not Survived")
 
-    if st.checkbox("View Classification Report"):
-        if st.session_state.report is not None:    
-            model_type = model_type
-            report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
-            st.subheader("Classification Report:")
-            st.write(report)
+if st.checkbox("View Classification Report"):
+    if st.session_state.report is not None:    
+        model_type = model_type
+        report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
+        st.subheader("Classification Report:")
+        st.write(report)
+    else:
+        st.write("Please make a prediction first.")
