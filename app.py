@@ -33,7 +33,7 @@ SibSp = st.slider("Number of Siblings/Spouses Aboard", 0, 10, 0)
 Parch = st.slider("Number of Parents/Children Aboard", 0, 10, 0)
 Fare = st.slider("Fare", 0, 300, 50)
 model_type = st.selectbox("Select Model", ["Random Forest", "Logistic Regression", "Decision Tree"])
-st.checkbox("View Classification Report")
+cr = st.checkbox("View Classification Report")
 
 # Preprocess user input
 def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
@@ -77,11 +77,11 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
     prediction = model.predict(X_test)
     
-    if st.checkbox("View Classification Report"):
+    if cr = "True":
         report = classification_report(y_test, prediction)
         st.subheader("Classification Report:")
         st.write(report)
-
+    
 # Display prediction
 if st.button("Predict"):
     Pclass, Sex, Age, SibSp, Parch, Fare = preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare)
