@@ -77,7 +77,7 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
     prediction = model.predict(X_test)
     
-    if cr = "True":
+    if cr == "True":
         report = classification_report(y_test, prediction)
         st.subheader("Classification Report:")
         st.write(report)
