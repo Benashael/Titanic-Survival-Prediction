@@ -76,7 +76,7 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
     prediction = model.predict(X_test)
     report = classification_report(y_test, prediction)
-    return prediction, report
+    return report
 
 if 'prediction' not in st.session_state:
     st.session_state.prediction = None
