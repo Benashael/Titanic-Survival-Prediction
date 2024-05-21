@@ -33,6 +33,7 @@ SibSp = st.slider("Number of Siblings/Spouses Aboard", 0, 10, 0)
 Parch = st.slider("Number of Parents/Children Aboard", 0, 10, 0)
 Fare = st.slider("Fare", 0, 300, 50)
 model_type = st.selectbox("Select Model", ["Random Forest", "Logistic Regression", "Decision Tree"])
+st.checkbox("View Classification Report")
 
 # Preprocess user input
 def preprocess_input(Pclass_1, Sex_1, Age, SibSp, Parch, Fare):
@@ -80,14 +81,6 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
         report = classification_report(y_test, prediction)
         st.subheader("Classification Report:")
         st.write(report)
-#return report
-
-'''if 'prediction' not in st.session_state:
-    st.session_state.prediction = None
-if 'report' not in st.session_state:
-    st.session_state.report = None'''
-
-    
 
 # Display prediction
 if st.button("Predict"):
@@ -95,12 +88,3 @@ if st.button("Predict"):
     prediction = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare)
     st.subheader("Prediction:")
     st.write("Survived" if prediction[0] == 1 else "Not Survived")
-
-'''if st.checkbox("View Classification Report"):
-    if st.session_state.report is not None:    
-        model_type = model_type
-        report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
-        st.subheader("Classification Report:")
-        st.write(report)
-    else:
-        st.write("Please make a prediction first.")'''
