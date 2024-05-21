@@ -75,17 +75,19 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     # Make prediction
     prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
     prediction = model.predict(X_test)
-    report = classification_report(y_test, prediction)
-    #return report
+    
+    if st.checkbox("View Classification Report"):
+        report = classification_report(y_test, prediction)
+        st.subheader("Classification Report:")
+        st.write(report)
+#return report
 
 '''if 'prediction' not in st.session_state:
     st.session_state.prediction = None
 if 'report' not in st.session_state:
     st.session_state.report = None'''
 
-    if st.checkbox("View Classification Report"):
-        st.subheader("Classification Report:")
-        st.write(report)
+    
 
 # Display prediction
 if st.button("Predict"):
