@@ -78,10 +78,14 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     report = classification_report(y_test, prediction)
     return report
 
-if 'prediction' not in st.session_state:
+'''if 'prediction' not in st.session_state:
     st.session_state.prediction = None
 if 'report' not in st.session_state:
-    st.session_state.report = None
+    st.session_state.report = None'''
+
+if st.checkbox("View Classification Report"):
+    st.subheader("Classification Report:")
+    st.write(report)
 
 # Display prediction
 if st.button("Predict"):
@@ -90,11 +94,11 @@ if st.button("Predict"):
     st.subheader("Prediction:")
     st.write("Survived" if prediction[0] == 1 else "Not Survived")
 
-if st.checkbox("View Classification Report"):
+'''if st.checkbox("View Classification Report"):
     if st.session_state.report is not None:    
         model_type = model_type
         report = predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare, model_type)
         st.subheader("Classification Report:")
         st.write(report)
     else:
-        st.write("Please make a prediction first.")
+        st.write("Please make a prediction first.")'''
