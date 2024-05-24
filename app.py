@@ -74,7 +74,6 @@ def predict_survival(Pclass, Sex, Age, SibSp, Parch, Fare):
     # Make prediction
     prediction = model.predict([[Pclass, Sex, Age, SibSp, Parch, Fare]])
     prediction = model.predict(X_test)
-    report = classification_report(y_test, prediction)
     return prediction
     
 # Display prediction
