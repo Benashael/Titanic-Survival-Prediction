@@ -19,7 +19,7 @@ df = load_data()
 
 # Display the dataset
 st.header("Titanic Dataset")
-st.write(df.tail())
+st.write(df)
 
 # User input features
 st.header("User Input Features")
